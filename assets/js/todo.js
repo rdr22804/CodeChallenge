@@ -1,6 +1,7 @@
 // JavaScript Document
 var apiUrl = 'https://www.fsi.illinois.edu/demo/data.cfm';
-var apiKey = '37a99194b94b2c1aeae3cd3b30ab7b9b';
+//var apiKey = '37a99194b94b2c1aeae3cd3b30ab7b9b';
+var apiKey = '26f22405ca46091b609cc62b515a3e70';
 $(document).ready(function() {
 	getTasks();
 	
@@ -44,7 +45,6 @@ $(document).ready(function() {
 		var act = eleArray[0];
 		var taskId = eleArray[1];
 		if(act == 'edit-task'){
-			console.log(e.parent().siblings('.task-desc'));
 			$('#current-task').val(taskId);
 			$('#task-description').val(e.parent().siblings('.task-desc').html());
 			var dueDateObj = new Date(e.parent().siblings('.task-date').html());
@@ -52,16 +52,16 @@ $(document).ready(function() {
 			var dd = dueDateObj.getDate();
 			var dueDate = dueDateObj.getFullYear() + '-' + (mm < 10 ? '0' : '') + mm + '-' + (dd < 10 ? '0' : '') + dd;
 			$('#task-due-date').val(dueDate);
-			var taskComplete = 0;
-			if($('#task-complete').is(':checked')){
-				taskComplete = 1;
+			var taskComplete = e.parent().siblings('.task-desc').attr('data-complete');
+			if(taskComplete == 1){
+				$('#task-complete').prop('checked',true);
+			}else{
+				$('#task-complete').prop('checked',false);
 			}
 			$('#new-task-holder, #edit-task-btn').show();
 			$('#add-task-btn, #toggle-new-task-btn').hide();
-			//updateTask(taskId,taskDesc,taskDate,taskComplete);
 		}else{
 			deleteTasks(taskId);
-			//getTasks();
 		}
 	});
 		
@@ -81,7 +81,7 @@ function updateTaskView(d)
 	comTable.html('');
  	$.each(d, function(i, item){
 		var row = $('<tr></tr>');
-		var descCell = $('<td></td>',{'class':'task-desc'});
+		var descCell = $('<td></td>',{'class':'task-desc','data-complete':d[i].completed});
 		var dateCell = $('<td></td>',{'class':'task-date'});
 		var editCell = $('<td></td>');
 		var editBtn = $('<button></button>',{id:'edit-task_' + d[i].task_id, 'class': 'btn btn-secondary btn-sm btn-edit'}).html('Edit');
@@ -133,8 +133,6 @@ function sendRequest(sendInfo)
 			}
 		},
 		error:function(result){
-			console.log(result);
-			console.log(result.statusText);
 			if(result.status == 200){
 				$('#alert-text').html('<strong>Success!</strong>');
 				$('#status-alert').show();
