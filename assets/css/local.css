@@ -1,0 +1,10 @@
+#content-holder {
+	margin-top: 5px;
+}
+.custom-control-label {
+	margin-top: 10px;
+}
+
+#new-task-holder, #edit-task-btn, #status-alert {
+	display: none;
+}
