@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Untitled Document</title>
+	<title>Bob's ToDo List</title>
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="assets/css/local.css" rel="stylesheet" />
 </head>
@@ -14,14 +14,14 @@
 	</nav>-->
 	
 	<div class="container-fluid" id="content-holder">
-		<div class="alert alert-success alert-dismissible" id="status-alert" role="alert">
+		<div class="alert alert-success" id="status-alert" role="alert">
 			<div id="alert-text"></div>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="$('.alert').hide()">
+			<!--<button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="$('.alert').hide()">
 				<span aria-hidden="true">&times;</span>
-			</button>
+			</button>-->
 		</div>
 		<div class="row">
-			<div class="col-2">
+			<div class="col-lg-2 col-sm-4">
 				<button class="btn btn-primary btn-sm" type="button" id="toggle-new-task-btn">Add a new task</a>
 			</div>
 		</div>
@@ -31,25 +31,25 @@
 			<!--<hr class="mb-4">-->
 			<form id="add-todo-form">
 				<div class="row">
-					<div class="col-6">
+					<div class="col-lg-6 col-sm-12">
 						<label for="task-description">Task Description</label>
 						<textarea name="task-description" id="task-description" class="form-control"></textarea>
 					</div>
-					<div class="col-6">
+					<div class="col-lg-6  col-sm-12">
 						<div class="row">
-							<div class="col-3">
+							<div class="col-lg-3 col-sm-12">
 								<label for="task-due-date">Due Date</label>
 								<input type="date" class="form-control" id="task-due-date" name="task-due-date" />
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-3">
+							<div class="col-lg-3 col-sm-12">
 								<div class="custom-control custom-checkbox">
 									<input type="checkbox" class="custom-control-input" id="task-complete" name="task-complete" />
 									<label class="custom-control-label" for="task-complete">Mark task complete</label>
 								</div>
 							</div>
-							<div class="col-2">
+							<div class="col-lg-2 col-sm-12">
 								<div class="form-group">
 									<input type="hidden" id="current-task" value="0" />
 									<button class="btn btn-primary btn-sm" type="button" id="add-task-btn">Add Task</button>

@@ -47,7 +47,11 @@ $(document).ready(function() {
 			console.log(e.parent().siblings('.task-desc'));
 			$('#current-task').val(taskId);
 			$('#task-description').val(e.parent().siblings('.task-desc').html());
-			$('#task-due-date').val(e.parent().siblings('.task-date').html());
+			var dueDateObj = new Date(e.parent().siblings('.task-date').html());
+			var mm = dueDateObj.getMonth();
+			var dd = dueDateObj.getDate();
+			var dueDate = dueDateObj.getFullYear() + '-' + (mm < 10 ? '0' : '') + mm + '-' + (dd < 10 ? '0' : '') + dd;
+			$('#task-due-date').val(dueDate);
 			var taskComplete = 0;
 			if($('#task-complete').is(':checked')){
 				taskComplete = 1;
@@ -60,7 +64,14 @@ $(document).ready(function() {
 			//getTasks();
 		}
 	});
+		
 });
+
+function turnOffAlert(){
+setTimeout(function() {
+		$("div[role='alert']").fadeOut('slow');
+	}, 2000);
+}
 
 function updateTaskView(d)
 {
@@ -110,6 +121,7 @@ function sendRequest(sendInfo)
 				$('#alert-text').html('<strong>Success!</strong>');
 				$('#status-alert').show();
 				$('.alert').show();
+				turnOffAlert();
 				$('#task-description').val('');
 				$('#task-due-date').val('');
 				$('#new-task-holder').hide();
@@ -127,6 +139,7 @@ function sendRequest(sendInfo)
 				$('#alert-text').html('<strong>Success!</strong>');
 				$('#status-alert').show();
 				$('.alert').show();
+				turnOffAlert();
 				$('#task-description').val('');
 				$('#task-due-date').val('');
 				$('#new-task-holder').hide();
