@@ -8,3 +8,7 @@
 #new-task-holder, #edit-task-btn, #status-alert {
 	display: none;
 }
+.btn {
+	font-size: 1.2rem;
+	font-weight: bold;
+}

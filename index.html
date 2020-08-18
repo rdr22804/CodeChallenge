@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,9 @@
 </head>
 
 <body>
-	<!--<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Bob's ToDo List</a>
-	</nav>-->
+	<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+		<h1><a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Bob's ToDo List</a></h1>
+	</nav>
 	
 	<div class="container-fluid" id="content-holder">
 		<div class="alert alert-success" id="status-alert" role="alert">
@@ -21,7 +21,7 @@
 			</button>-->
 		</div>
 		<div class="row">
-			<div class="col-lg-2 col-sm-4">
+			<div class="col-xl-2 col-12">
 				<button class="btn btn-primary btn-sm" type="button" id="toggle-new-task-btn">Add a new task</a>
 			</div>
 		</div>
@@ -31,25 +31,25 @@
 			<!--<hr class="mb-4">-->
 			<form id="add-todo-form">
 				<div class="row">
-					<div class="col-lg-6 col-sm-12">
+					<div class="col-lg-6 col-12">
 						<label for="task-description">Task Description</label>
 						<textarea name="task-description" id="task-description" class="form-control"></textarea>
 					</div>
-					<div class="col-lg-6  col-sm-12">
+					<div class="col-xl-6  col-12">
 						<div class="row">
-							<div class="col-lg-3 col-sm-12">
+							<div class="col-lg-6 col-sm-12">
 								<label for="task-due-date">Due Date</label>
 								<input type="date" class="form-control" id="task-due-date" name="task-due-date" />
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-3 col-sm-12">
+							<div class="col-lx-6 col-12">
 								<div class="custom-control custom-checkbox">
 									<input type="checkbox" class="custom-control-input" id="task-complete" name="task-complete" />
 									<label class="custom-control-label" for="task-complete">Mark task complete</label>
 								</div>
 							</div>
-							<div class="col-lg-2 col-sm-12">
+							<div class="col-xl-3 col-12">
 								<div class="form-group">
 									<input type="hidden" id="current-task" value="0" />
 									<button class="btn btn-primary btn-sm" type="button" id="add-task-btn">Add Task</button>
@@ -71,8 +71,8 @@
 					<tr>
 						<th>Task Description</th>
 						<th>Task Due Date</th>
-						<th></th>
-						<th></th>
+						<th>Edit Contraols</th>
+						<th>Delete Controls</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -87,8 +87,8 @@
 					<tr>
 						<th>Task Description</th>
 						<th>Task Due Date</th>
-						<th></th>
-						<th></th>
+						<th>Edit Controls</th>
+						<th>Delete Controls</th>
 					</tr>
 				</thead>
 				<tbody>
